@@ -41,3 +41,5 @@ Add dark theme and consider using SCSS for styles.
 Develop summary page to see full statistics on your own and all the users labelling.
 Make the summary in .json format downloadable.
 Make necessary changes to enable users to re-evaluate their choices.
+
+ATM Pushing to main branch initiates Actions to build the image on dockerhub, there are no separate environments implemented. This would be something to seriously consider.

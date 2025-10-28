@@ -20,7 +20,10 @@ export default function App() {
         const token = localStorage.getItem("token");
         if (local_stored_user && token) {
             privateApi.get("/me")
-                .then(() => dispatch(loginSuccess(JSON.parse(local_stored_user))))
+                .then(response => {
+                    console.log(response.data)
+                    dispatch(loginSuccess(JSON.parse(local_stored_user)))
+                })
                 .catch(() => {
                     localStorage.clear();
                     dispatch(logout());

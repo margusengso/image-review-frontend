@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import {Routes, Route, Navigate, useNavigate} from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { loginSuccess, logout } from "./features/authSlice";
@@ -13,6 +13,7 @@ export default function App() {
     const user = useSelector(s => s.auth.user);
     const dispatch = useDispatch();
     const loginOpen = useSelector(state => state.ux.loginOpen)
+    const navigate = useNavigate();
 
     useEffect(() => {
         const local_stored_user = localStorage.getItem("user");
@@ -20,7 +21,10 @@ export default function App() {
         if (local_stored_user && token) {
             privateApi.get("/me")
                 .then(() => dispatch(loginSuccess(JSON.parse(local_stored_user))))
-                .catch(() => { localStorage.clear(); dispatch(logout()); });
+                .catch(() => {
+                    localStorage.clear();
+                    dispatch(logout());
+                });
         }
     }, []);
 
@@ -29,6 +33,7 @@ export default function App() {
     useEffect(() => {
         if (user) {
             dispatch(closeLoginModal())
+            navigate('/dashboard');
         }
     }, [user]);
 

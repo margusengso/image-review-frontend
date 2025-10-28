@@ -31,7 +31,8 @@ export default function Header() {
     }
     useEffect(() => {
         setIsMenuOpen(false)
-    }, [mainClick])
+    }, [mainClick, user])
+
 
 
     return (

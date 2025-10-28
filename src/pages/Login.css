@@ -1,0 +1,51 @@
+/* Fullscreen overlay (0.4 black, clickable to close) */
+.login-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+    background: rgba(0, 0, 0, 0.4);
+    display: grid;
+    place-items: center;
+    cursor: default;
+}
+
+/* Centered modal card */
+.login-modal {
+    position: relative;
+    z-index: 160;
+    width: min(320px, 92vw);
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    padding: 28px 24px;
+    cursor: default;
+}
+
+/* Header */
+.login-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Warning text */
+.login-warning {
+    color: crimson;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+/* Google button container */
+.login-button-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}

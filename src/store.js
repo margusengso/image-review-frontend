@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
 import auth from "./features/authSlice";
-const store = configureStore({ reducer: { auth } });
+import ux from "./features/uxSlice.js";
+const store = configureStore({ reducer: { auth, ux } });
 export default store;

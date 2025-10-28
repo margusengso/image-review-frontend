@@ -3,8 +3,8 @@ const slice = createSlice({
     name: "auth",
     initialState: { user: null },
     reducers: {
-        loginSuccess: (s, a) => { s.user = a.payload; },
-        logout: (s) => { s.user = null; },
+        loginSuccess: (state, action) => { state.user = action.payload; },
+        logout: (state) => { state.user = null; },
     }
 });
 export const { loginSuccess, logout } = slice.actions;

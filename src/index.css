@@ -1,0 +1,29 @@
+:root {
+    --white: #ffffff;
+    --text-color: #333;
+    --primary-color: #8a7cff;
+    --secondary-color: #6c63ff;
+    --light-gray: #f5f5f5;
+}
+
+body {
+    font-family: 'Inter', 'Roboto', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    cursor: default;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+

@@ -42,77 +42,77 @@ export default function Header() {
                 <div style={{ flex: 1 }} />
 
 
-                        {isMenuOpen &&
-                            <nav className={'nav active'}>
-                            <ul className="nav-list">
-                                {!user ? (
-                                    <li
+                {isMenuOpen &&
+                    <nav className={'nav active'}>
+                        <ul className="nav-list">
+                            {!user ? (
+                                <li
+                                    className="nav-item"
+                                    onClick={() => signInClick()}
+                                >
+                                    <span className='no-bottom-border'>Sign in</span>
+                                </li>
+                            ) : (
+                                <li
+                                    className="nav-item"
+                                    onClick={() => {
+                                        setIsMenuOpen(false);
+                                        handleLogout();
+                                    }}
+                                >
+                                    <span className='no-bottom-border'>Logout</span>
+                                </li>
+                            )}
+                        </ul>
+                    </nav>
+                }
+
+
+                {!isMenuOpen &&
+                    <nav className={'temp-hidden-fix nav'}>
+                        <ul className="nav-list">
+                            {!user ? (
+                                <>
+                                    <div style={{flex: 1}}/>
+                                    <div
                                         className="nav-item"
                                         onClick={() => signInClick()}
                                     >
-                                        <span className='no-bottom-border'>Sign in</span>
-                                    </li>
-                                ) : (
-                                    <li
+                                        <span>Sign in</span>
+                                    </div>
+                                </>
+                            ) : (
+
+                                <>
+                                    {user?.picture &&
+                                        <img src={user.picture} width="32" height="32" className='user-image' />
+                                    }
+                                    <div className=''>{user?.given_name} {user?.family_name}</div>
+                                    <div style={{flex: 1}}/>
+                                    <div
                                         className="nav-item"
                                         onClick={() => {
                                             setIsMenuOpen(false);
                                             handleLogout();
                                         }}
                                     >
-                                        <span className='no-bottom-border'>Logout</span>
-                                    </li>
-                                )}
-                            </ul>
-                            </nav>
-                        }
+                                        <span>Logout</span>
+                                    </div>
 
-
-                        {!isMenuOpen &&
-                            <nav className={'temp-hidden-fix nav'}>
-                            <ul className="nav-list">
-                                {!user ? (
-                                    <>
-                                        <div style={{flex: 1}}/>
-                                        <div
-                                            className="nav-item"
-                                            onClick={() => signInClick()}
-                                        >
-                                            <span>Sign in</span>
-                                        </div>
-                                    </>
-                                ) : (
-
-                                    <>
-                                        {user?.picture &&
-                                            <img src={user.picture} width="32" height="32" className='user-image' />
-                                        }
-                                        <div className=''>{user?.given_name} {user?.family_name}</div>
-                                        <div style={{flex: 1}}/>
-                                        <div
-                                            className="nav-item"
-                                            onClick={() => {
-                                                setIsMenuOpen(false);
-                                                handleLogout();
-                                            }}
-                                        >
-                                            <span>Logout</span>
-                                        </div>
-
-                                    </>
-                                )}
-                            </ul>
-                            </nav>
-                        }
+                                </>
+                            )}
+                        </ul>
+                    </nav>
+                }
 
 
 
 
 
                 {isMenuOpen &&
-                <div className="menu-icon" onClick={closeMenu}>
-                     <FaTimes />
-                </div>
+                    <div className="menu-icon" onClick={closeMenu}>
+                        <FaTimes />
+                    </div>
                 }
                 {!isMenuOpen &&
                     <div className="menu-icon" onClick={openMenu}>
